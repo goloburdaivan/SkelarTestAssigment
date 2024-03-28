@@ -20,4 +20,8 @@ class ResourceController extends ApiController
     public function list() : void {
         echo json_encode($this->users);
     }
+
+    public function single(string $id): void {
+        echo json_encode($id);
+    }
 }

@@ -14,9 +14,7 @@ $router = new Router();
 $router->get('/example', [ExampleController::class, 'index']);
 $router->get('/home', [ExampleController::class, 'home']);
 $router->get('/users', [ResourceController::class, 'list']);
-
-$requestedRoute = $_SERVER['REQUEST_URI'];
-$requestedMethod = $_SERVER['REQUEST_METHOD'];
+$router->get('/users/{id}', [ResourceController::class, 'single']);
 
 $executor = new RouterExecutor($router);
-$executor->execute($requestedMethod, $requestedRoute);
+$executor->execute($_SERVER['REQUEST_METHOD'], $_SERVER['REQUEST_URI']);
