@@ -14,7 +14,7 @@ class RouterExecutor
     public function execute(string $method, string $uri): void
     {
         $routes = $this->router->getRoutes();
-        if (!array_key_exists($uri, $routes) || !array_key_exists($uri, $routes[$method])) {
+        if (!array_key_exists($uri, $routes)) {
             http_response_code(404);
             echo "404! Page not found!";
             return;
