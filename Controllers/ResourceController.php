@@ -22,6 +22,8 @@ class ResourceController extends ApiController
     }
 
     public function single(string $id): void {
-        echo json_encode($id);
+        echo json_encode(
+            array_values(array_filter($this->users, fn ($user) => $user->id == $id))[0]
+        );
     }
 }

@@ -9,12 +9,12 @@ require_once "./Routing/Router.php";
 require_once './Controllers/ExampleController.php';
 require_once './Controllers/ResourceController.php';
 
-
 $router = new Router();
 $router->get('/example', [ExampleController::class, 'index']);
 $router->get('/home', [ExampleController::class, 'home']);
 $router->get('/users', [ResourceController::class, 'list']);
 $router->get('/users/{id}', [ResourceController::class, 'single']);
+$router->get('/users/{name}/{surname}', [ResourceController::class, 'test']);
 
 $executor = new RouterExecutor($router);
 $executor->execute($_SERVER['REQUEST_METHOD'], $_SERVER['REQUEST_URI']);

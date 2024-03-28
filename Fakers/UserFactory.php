@@ -3,7 +3,7 @@
 namespace Fakers;
 
 use Stub\User;
-require_once './Stub/User.php';
+require_once './Models/User.php';
 
 class UserFactory {
     private int $count = 1;
