@@ -28,6 +28,7 @@ class RouterExecutor
     }
     public function execute(string $method, string $uri): void
     {
+        $uri = rtrim($uri, '/');
         $routes = $this->router->getRoutes();
         $parameters = $this->routesHelper->processParameterizedRoutes($routes, $uri);
         if (!empty($parameters)) {
