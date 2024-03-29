@@ -4,6 +4,8 @@ namespace Controllers;
 
 use Authenticated;
 use Fakers\UserFactory;
+use Responses\NotFoundResponse;
+
 require_once './Fakers/UserFactory.php';
 require_once './Auth/Traits/Authenticated.php';
 require_once './Controllers/ApiController.php';
@@ -26,8 +28,18 @@ class ResourceController extends ApiController
     }
 
     public function single(string $id): void {
+        $user = array_filter($this->users, fn ($user) => $user->id == $id);
+        $user = reset($user);
+        if (empty($user)) {
+            echo new NotFoundResponse();
+            exit;
+        }
+
         echo json_encode(
-            array_values(array_filter($this->users, fn ($user) => $user->id == $id))[0]
+            $user
         );
+    }
+    public function test(string $name, string $surname) {
+        echo json_encode(['name' => $name, 'surname' => $surname]);
     }
 }
