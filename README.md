@@ -62,6 +62,10 @@ All you have to do is just to type this command:
 ```
 Done! The application is working now!
 
+To access the resource try stub auth model:
+Login: admin
+Password: 123123
+
 # Swagger API documentation
 <img src="https://i.imgur.com/id4BSZi.png" />
 <img src="https://i.imgur.com/68bLEi5.png" />
