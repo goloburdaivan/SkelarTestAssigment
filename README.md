@@ -1,4 +1,6 @@
 # About
+This project is written on clean PHP 8.0 without using any framework or library
+
 I`ve tried to copy the concept of Laravel framework. So, basically, I wrote routing system (with parameterized routes) and user custom controllers
 
 Code example of routing system:
