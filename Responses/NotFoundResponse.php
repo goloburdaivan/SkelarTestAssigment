@@ -14,6 +14,7 @@ class NotFoundResponse extends JsonResponse
     ];
     public function __construct()
     {
+        http_response_code(HttpStatus::HTTP_NOT_FOUND);
         parent::__construct();
     }
 }

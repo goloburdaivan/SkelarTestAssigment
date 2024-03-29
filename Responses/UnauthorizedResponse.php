@@ -15,7 +15,7 @@ class UnauthorizedResponse extends JsonResponse
     public function __construct()
     {
         header('WWW-Authenticate: Basic realm="Restricted Area"');
-        header('HTTP/1.0 401 Unauthorized');
+        http_response_code(HttpStatus::HTTP_UNAUTHORIZED);
         parent::__construct();
     }
 }

@@ -11,7 +11,6 @@ abstract class JsonResponse
 
     public function __construct()
     {
-        http_response_code(HttpStatus::HTTP_OK);
         header('Content-Type: application/json');
     }
 
