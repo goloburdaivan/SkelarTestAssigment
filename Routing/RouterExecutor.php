@@ -23,7 +23,6 @@ class RouterExecutor
         $action = $this->router->getRoutes()[$uri][$method];
         $controllerClass = $action[0];
         $controllerMethod = $action[1];
-        error_log($controllerClass);
         $controller = new $controllerClass();
         $controller->$controllerMethod(...$params);
     }
