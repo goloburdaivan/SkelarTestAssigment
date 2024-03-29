@@ -2,18 +2,22 @@
 
 namespace Controllers;
 
+use Authenticated;
 use Fakers\UserFactory;
 require_once './Fakers/UserFactory.php';
+require_once './Auth/Traits/Authenticated.php';
 require_once './Controllers/ApiController.php';
 
 class ResourceController extends ApiController
 {
     private array $users = [];
+    use Authenticated;
 
     // Stubbing resources for showing how the API works
     public function __construct()
     {
         parent::__construct();
+        $this->requireAuthorization();
         $this->users = UserFactory::fake()->count(10)->make();
     }
 
