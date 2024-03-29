@@ -19,6 +19,7 @@ class Router
 
     private function registerRoute(string $route, string $method, array $action): void
     {
+        $route = rtrim($route, '/');
         if (!array_key_exists($route, $this->routes)) {
             $this->routes[$route] = [];
         }

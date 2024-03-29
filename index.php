@@ -14,7 +14,7 @@ $router->get('/example', [ExampleController::class, 'index']);
 $router->get('/home', [ExampleController::class, 'home']);
 $router->get('/users', [ResourceController::class, 'list']);
 $router->get('/users/{id}', [ResourceController::class, 'single']); // Needs Basic Auth
-$router->get('/users/{name}/{surname}', [ResourceController::class, 'test']); // Needs Basic Auth
+$router->get('/users/{name}/{surname}/', [ResourceController::class, 'test']); // Needs Basic Auth
 
 $executor = new RouterExecutor($router);
 $executor->execute($_SERVER['REQUEST_METHOD'], $_SERVER['REQUEST_URI']);
