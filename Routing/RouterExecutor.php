@@ -36,7 +36,7 @@ class RouterExecutor
             return;
         }
 
-        if (!array_key_exists($uri, $routes)) {
+        if (!array_key_exists($uri, $routes) || !array_key_exists($method, $routes[$uri])) {
             http_response_code(HttpStatus::HTTP_NOT_FOUND);
             echo new NotFoundResponse();
             return;

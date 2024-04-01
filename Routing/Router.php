@@ -10,7 +10,6 @@ require_once './Constants/HttpMethods.php';
 class Router
 {
     private array $routes = [];
-    private RequestValidator $requestValidator;
 
     public function __construct()
     {
@@ -34,13 +33,11 @@ class Router
 
     public function get(string $route, array $action): void
     {
-        $this->requestValidator->validateRequestMethod(HttpMethods::HTTP_GET);
         $this->registerRoute($route, HttpMethods::HTTP_GET, $action);
     }
 
     public function post(string $route, array $action): void
     {
-        $this->requestValidator->validateRequestMethod(HttpMethods::HTTP_POST);
         $this->registerRoute($route, HttpMethods::HTTP_POST, $action);
     }
 }
