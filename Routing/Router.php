@@ -13,7 +13,6 @@ class Router
 
     public function __construct()
     {
-        $this->requestValidator = new RequestValidator();
     }
 
     private function registerRoute(string $route, string $method, array $action): void
